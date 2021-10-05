@@ -1,0 +1,15 @@
+easy_php:
+由网站提示使用Git怀疑是git源码泄露，获得源码。
+分析源码可以构造payload实现闭合绕过检查。
+
+知识点：git源码泄露，简单的闭合
+
+
+
+looking for treasure:
+阅读网页的源码得知./source，访问获得源码。
+分析源码发现读取p文件，而p可以由config.path控制，
+而req.params.library处会访问json-schema，可以用json-schema
+原型链污染修改父类object的path属性从而控制config.path。
+
+知识点：json-schema原型链污染
